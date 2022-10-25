@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+k {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #fff;
+    background-size: 400%;
+    border-radius: 50px;
+    z-index: 1
+}
+
+/* 发光效果 */
+k::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    /* 背景渐变色 */
+    background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+    /* 背景渐变色大小 */
+    background-size: 400%;
+    border-radius: 50px;
+    z-index: -1;
+    /* 设置模糊度，显示发光效果 */
+    filter: blur(20px);
+}
+
+k:hover {
+    animation: sun 8s infinite;
+}
+
+k:hover::before {
+    animation: sun 8s infinite;
+}
+
+@keyframes sun {
+    100% {
+        background-position: -400% 0;
+    }
+}
+
+
+.headPhoto {
+    width: 8rem;
+    height: 8rem;
+    background: url(https://api2.mubu.com/v3/document_image/065785e7-de85-464c-ac50-5ba748452911-4842359.jpg) no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+    top: -15%;
+    left: 50%;
+    margin-left: -4rem;
+    transition: all 0.5s;
+}
+.meBox:hover .headPhoto {
+    width: 9rem;
+    height: 9rem;
+    margin: -0.5rem 0 0 -4.5rem;
+    transform: rotate(360deg);
+}
+
+.headPhoto:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
