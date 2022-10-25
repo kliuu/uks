@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>图形验证码</title>
+ </head>
+ <style>
+   #captchaImage {
+     border: 2px solid transparent;
+     margin-bottom: 10px;
+     overflow: hidden;
+     border-image:linear-gradient(to right,#94C5B0,#66BDC0) 1 10
+   }
+ </style>
+ <body>
+ <h1>获取临时账号</h1>
+  <div id="captchaImage" style="width: 80px;height: 20px;"></div>
+  <input type="text" id="code_input" value="" placeholder="请输入验证码"/><button id="my_button">验证</button>
+   <p>此账号仅供测试！测试后请使用你自己的百度账号，以防止个人信息泄露！！！</p>
+  
+ </body>
+ <script src="./captcha.js"></script>
+ 
+ <script>
+  var verifyCode = new Captcha("captchaImage");
+  document.getElementById("my_button").onclick = function(){
+   var res = verifyCode.validate(document.getElementById("code_input").value);
+   if(res){
+    alert("验证正确");
+	window.location.href = 'https://docs.qq.com/doc/DSk5JUWd3UXRtdXpE'
+   }else{
+    alert("验证码错误");
+   }
+  }
+ </script>
+</html>
