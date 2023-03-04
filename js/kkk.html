@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>论文降重助手免注册版</title>
+	<style>
+		body {
+			background-color: #f5f5f5;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			background-color: #4285f4;
+			color: #fff;
+			margin: 0;
+			padding: 20px;
+			text-align: center;
+		}
+		form {
+			background-color: #fff;
+			border: 1px solid #ddd;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+			margin: 20px auto;
+			padding: 20px;
+			max-width: 600px;
+		}
+		label {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		input[type="text"] {
+			border: 1px solid #ddd;
+			font-size: 16px;
+			padding: 10px;
+			width: 100%;
+		}
+		button {
+			background-color: #4285f4;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			font-size: 18px;
+			margin-top: 10px;
+			padding: 10px 20px;
+		}
+		button:hover {
+			background-color: #3367d6;
+		}
+		textarea {
+			border: 1px solid #ddd;
+			font-size: 16px;
+			padding: 10px;
+			resize: none;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<h1>论文降重助手免注册版<a href="https://kliuu.github.io/web/img/blog.png"  title="HTML链接图像缩图例子">
+	<img alt="https://kliuu.github.io/web/img/blog.png" width="66" height="66" />
+</a></h1>
+	<br><br>
+	
+	<p>请输入中文文本：</p>
+	<textarea id="input_text" rows="10" cols="50"></textarea>
+	
+	<br><br>
+	<button onclick="translateToKorean()">降重结果1</button>
+	<button onclick="translateToJapanese()">降重结果2</button>
+	<button onclick="translateToRussian()">降重结果3</button>
+	<button onclick="translateToFrench()">降重结果4</button>
+	<button onclick="translateToGerman()">降重结果5</button>
+	<p>降重结果：</p>
+	<textarea id="output_text" rows="10" cols="50"></textarea>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		function translateToKorean() {
+			var inputText = $("#input_text").val();
+			var apiUrl = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=ko&dt=t&q=" + inputText;
+			$.ajax({
+				url: apiUrl,
+				success: function(response) {
+					var koreanText = response[0][0][0];
+					var apiUrl2 = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=zh-CN&dt=t&q=" + koreanText;
+					$.ajax({
+						url: apiUrl2,
+						success: function(response) {
+							var chineseText = response[0][0][0];
+							$("#output_text").val(chineseText);
+						}
+					});
+				}
+			});
+		}
+		
+		function translateToJapanese() {
+			var inputText = $("#input_text").val();
+			var apiUrl = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=ja&dt=t&q=" + inputText;
+			$.ajax({
+				url: apiUrl,
+				success: function(response) {
+					var japaneseText = response[0][0][0];
+					var apiUrl2 = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=zh-CN&dt=t&q=" + japaneseText;
+					$.ajax({
+						url: apiUrl2,
+						success: function(response) {
+							var chineseText = response[0][0][0];
+							$("#output_text").val(chineseText);
+						}
+					});
+				}
+			});
+		}
+		
+		function translateToRussian() {
+			var inputText = $("#input_text").val();
+			var apiUrl = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=ru&dt=t&q=" + inputText;
+			$.ajax({
+				url: apiUrl,
+				success: function(response) {
+					var russianText = response[0][0][0];
+					var apiUrl2 = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=zh-CN&dt=t&q=" + russianText;
+					$.ajax({
+						url: apiUrl2,
+						success: function(response) {
+							var chineseText = response[0][0][0];
+$("#output_text").val(chineseText);
+}
+});
+}
+});
+}
+	function translateToFrench() {
+		var inputText = $("#input_text").val();
+		var apiUrl = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=fr&dt=t&q=" + inputText;
+		$.ajax({
+			url: apiUrl,
+			success: function(response) {
+				var frenchText = response[0][0][0];
+				var apiUrl2 = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=fr&tl=zh-CN&dt=t&q=" + frenchText;
+				$.ajax({
+					url: apiUrl2,
+					success: function(response) {
+						var chineseText = response[0][0][0];
+						$("#output_text").val(chineseText);
+					}
+				});
+			}
+		});
+	}
+
+	function translateToGerman() {
+		var inputText = $("#input_text").val();
+		var apiUrl = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=de&dt=t&q=" + inputText;
+		$.ajax({
+			url: apiUrl,
+			success: function(response) {
+				var germanText = response[0][0][0];
+				var apiUrl2 = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=de&tl=zh-CN&dt=t&q=" + germanText;
+				$.ajax({
+					url: apiUrl2,
+					success: function(response) {
+						var chineseText = response[0][0][0];
+						$("#output_text").val(chineseText);
+					}
+				});
+			}
+		});
+	}
+</script>
+</body>
+<br><br>
+说明：本页面仅可对一句话进行降重，如需进行长文降重请使用标准版（需要注册使用，但是完全免费）
+<br><br>
+本网站由谢菲尔德在校学生：LHY ᴷᴸᴵᵁᵁ 进行开发维护。如有问题请联系开发者微信：kliuuc
+<br><br>
+本网站99%的代码由chatGPT生成，因此完全免费。
+<br><br>
+本网站仅供海外学生使用，国内学生本页面使用需要“科学上网”。
+
+
+<footer class="footer bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+						<ul class="list-inline mb-2">
+							<li class="list-inline-item">
+								<a href="https://kliuu.github.io/web">谢菲尔德导航主页</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="https://kliuu.github.io/uks/">论文降重助手标准版</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="https://api2.mubu.com/v3/document_image/163853085212311f0.jpg">打赏一下，请我喝杯咖啡！☕</a>
+							</li>
+							
+						</ul>
+						</div>
+				</div>	
+		</footer>
+</html>
+
